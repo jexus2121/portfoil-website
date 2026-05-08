@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+    /*<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">*/
+    <head> 
+        <title>JD's Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+       <style>
+            *{
+                box-sizing: border-box;
+                margin: 0;
+                padding: 0;
+            }
+            html{
+                scroll-behavior: smooth; 
+                
+            }
+            :root{
+                --gold: #8B7355;
+                --gold-light: #C4A882;
+                --dark: #1a1612;
+                --text: #2c2420;
+                --muted: #6b5f57;
+                --bg: #faf8f5;
+                --white: #ffffff;
+            }
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: var(--bg);
+            }
+
+
+            .nav-container {
+                backdrop-filter: blur(10px);
+                border-bottom: 0.3px solid rgba(0, 0, 0, 0.1);
+                background-color: var(--bg);
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly ;
+                color:var(--gold);
+                padding: 20px 40px;
+                position: fixed  ;
+                width:100%;
+                top:0;
+            }
+
+            .logo {
+                font-size: 30px;
+                font-weight: bold;
+                font-family:"Playfair Display", serif;
+
+            }
+          nav a {
+                color: var(--text);
+                text-decoration: none;
+                margin-left: 20px;
+                font-size:medium;
+                font-family: "DM Sans";
+                position: relative;
+            }
+  
+
+
+            nav a::after {
+
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 2px;
+                background-color: var(--gold);
+                left: 0;
+                bottom: -8px;
+                transition: width 0.2s ease;
+            }
+            nav a:hover::after {
+                width: 100%;
+            }
+            nav a.btn-hire::after {
+            content: none;
+            }
+
+            .btn-hire {
+                background-color: var(--gold);
+                padding: 10px 20px;
+                border-radius: 4px;
+                color: var(--white);
+                transition: all 0.3s ease;
+                box-shadow: 0px 4px 8px rgba(23, 23, 23, 0.3);
+            }
+            
+            
+            .btn-hire:hover {
+                background-color: var(--gold);
+                padding: 10px 20px;
+                border-radius: 4px;
+                color: var(--white);
+                transform: translateY(-1px);
+                box-shadow: 0 4px 8px rgba(23, 23, 23, 0.7);
+            }
+                 .btn-hire:active {
+                background-color: var(--gold-light);
+                padding: 10px 20px;
+                border-radius: 4px;
+                color: var(--text);
+                transform: translateY(1px);
+            }
+             .hero-cta {
+                background-color: var(--bg);
+                 padding: 20px;
+                 padding-bottom: 280px;
+            }
+            .hero{
+                padding-top:280px;
+            }
+            .hero h1 {
+                font-size: 100px;
+                color: #3c322c;
+                text-align: center;
+                font-family: "Playfair Display", serif;
+                margin-top: 100px;
+                font-weight: 500;
+            
+            }
+            .hero p{
+                color : var(--muted);
+                text-align: center;
+                font-size: 20px;
+                margin-top: 30px;
+                font-family: "DM Sans", sans-serif;
+            }
+
+            .about h2 {
+                font-family: "DM Sans", serif;
+                
+            }
+            .hero-cta .btn-primary{
+                
+                display: inline-block;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 40px;
+                border-radius: 10px;
+                border: 2px solid var(--gold);
+                padding: 15px 20px;
+                background-color: none;
+                color:var(--gold);
+                text-decoration: none;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+            .hero-cta{
+                    text-align: center;
+            }
+            .hero-cta .btn-secondary { 
+                display: inline-block;
+                justify-content: center;
+                gap: 10px;
+                margin-top: 40px;
+                border-radius: 10px;
+                border: 2px solid var(--gold);
+                padding: 15px 20px;
+                background-color: var(--gold);
+                color:var(--white);
+                text-decoration: none;
+                text-align: center;
+                transition: all 0.3s ease;
+            }
+            .btn-primary:hover {
+                background-color: var(--gold);
+                color: var(--white);
+                transition: all 0.3s ease;
+                transform: translateY(-2px);
+            }
+            .btn-secondary:hover{
+                background-color: var(--bg);
+                color: var(--gold);
+                transition: all 0.3s ease;
+                transform: translateY(-2px);
+            }
+          .btn-primary:active {
+                background-color: var(--gold-light);
+                border-color:var(--gold-light);
+                color: var(--bg);
+                transition: all 0.3s ease;
+                transform: translateY(0px);
+            }
+            .btn-secondary:active{
+                background-color: var(--gold-light);
+                border-color:var(--gold-light);
+                color: var(--bg);
+                transition: all 0.3s ease;
+                transform: translateY(0px);
+            }
+        
+            .skills{
+
+                background-color: var(--white);
+                margin: 50px auto;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display:block;
+                padding: 200px;
+                padding-bottom: 400px;;
+            
+            }
+            .skills h2{
+                font-family: 'Playfair Display', sans-serif;
+                font-size: 40px;
+                font-weight: 500;
+                color:var(--text);
+                
+            }
+
+            .about{
+                background-color: var(--bg);
+                margin-top: 28px ;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                padding : 300px 300px;
+                display: block;
+            }
+            .about h2{
+                font-family: 'Playfair Display', sans-serif;
+                font-size:xx-large;
+            }
+            .about p{
+                font-family:"DM Sans", sans-serif;
+            }
+
+            .contact{
+                color:var(--bg);
+                background-color: var(--dark);
+                margin-top: 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display:block;
+                padding: 300px ;
+                padding-top: 500px;
+            }   
+
+            .footer{
+                color: grey;
+                background-color:#111;
+                text-align: right;
+                padding-right: 40px;
+                padding-top: 40px;
+                padding-bottom: 40px;
+                font-size: smaller;
+            }
+            .whatido{
+                font-family: "DM Sans", sans-serif;
+                font-size: 20px; 
+                color:var(--muted);
+            }
+            .box1, .box2, .box3{
+                display: block;
+                grid-template-columns: 50px 50px 50px;
+                border:1px solid rgba(60, 57, 57, 0.429);
+                border-radius: 20px;
+                padding: 20px 20px;
+            
+            }a
+
+            .skills-grid{
+                display : flex;
+                gap: 20 px;
+            }
+
+            .skills-card{
+                background:var(--gold-light);
+                padding: 40px 30px;
+                border-radius: 30px;
+            }
+         
+            
+
+        .contact-section {
+  background-color: #1a1614; 
+  color: #ffffff;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 600px;
+  width: 100%;
+}
+
+.contact-title {
+  font-family: 'Georgia', serif; 
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+
+.contact-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.03); 
+  padding: 30px;
+  border-radius: 12px;
+  border: 1px solid rgba(191, 163, 126, 0.2); 
+}
+
+.contact-text {
+  color: #e0e0e0;
+}
+.btn-email {
+  background-color: #8b735b; 
+  color: white;
+  padding: 12px 24px;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-email:hover {
+  background-color: #a68b6d;
+  transform: translateY(-2px);
+}
+
+.social-links {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.social-links a {
+  color: #8b735b;
+  text-decoration: none;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.social-links a:hover {
+  color: #fff;
+}
+.footer {
+  padding: 40px;
+  text-align: right; 
+  background-color: #1a1614;
+  color: #555;
+  font-size: 0.8rem;
+}
+
+
+        </style><body style="font-family: 'DM Sans', sans-serif;">
+            <nav> 
+
+               <div class="nav-container">
+
+                <div class="logo">
+                     JDS
+                </div>
+                <div class="nav-links">
+                 <a href="#home">Home</a>
+                 <a href="#about">About</a>
+                 <a href="#skills">Skills</a>
+                 <a href="#contact">Contact</a>
+                 </div>
+                 <a href="#contact" class="btn-hire">Hire Me</a>
+                 </div>
+            </nav>
+            
+            <section id="home">
+                <div class="hero">
+                    <h1 >Jeevan Darshan Sunar </h1>
+                    <p> Student <span>&bull;</span> Graphic Designer <span>&bull;</span> Musician</p>
+                    </div>
+            </section>
+            <div class="hero-cta">
+                <a href="#skills" class="btn-primary">View My Skills</a>
+                <a href="#contact" class="btn-secondary">Get In Touch</a>
+            </div>
+
+            <section id="skills">
+
+                <div class="skills">
+                    <p  class="whatido"> WHAT I DO</p>
+                    <h2 class="skill">Skills</h2>
+                    <br><br>
+                    <div class="skills-grid">
+                        <div class="skills-card">
+                    <div class="box1"><h2 align ="center">Graphic Designing</h2><br><p align="center" font-size="20px"> I do basic graphic design work. I can do your work according to your needs.</p></div>
+                    <div class="box2"><h2 align="center">Music</h2><br><p align="center" font-size="20px">I am interested in music and I know how to play instruments that fascinated me.</p></div>
+                    <div class="box3"><h2 align="center">Tech enthusiasts</h2><br><p align="center" font-size="20px"> The technology and stuff fascinated me and I am attracted towards technology and that kind of stuff.</p></div>
+                    </div>
+                    </div>
+                </div>
+            <section id="about">
+                <div class="about">
+                <h2 align="center">About Me</h2><br>
+                <p align="center"> I am a passionate student with a love for creativity, music and design. </p>
+                 <p>With a background in graphic design and music, I bring a unique perspective to my work. I am dedicated to sharpen my skills and creating impactful designs that resonates with audiences. </p>
+                </div>
+            </section>
+        
+
+
+      <section class="contact-section" id="contact">
+  <div class="contact-container">
+    <h2 class="contact-title">Get In Touch</h2>
+    
+    <div class="contact-actions">
+      <span class="contact-text">We can get in touch through email.</span>
+      <a href="mailto:jexus2121@gmail.com" class="btn-email">Email Me</a>
+    </div>
+
+    <div class="social-links">
+<a href="https://www.instagram.com/jeevan.darshan_" >
+  <span class="ig-icon"></span> 
+   Instagram
+</a>
+      <a href="https://www.facebook.com/Jeexas Pros" >Facebook</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>&copy; 2026 Jeevan Darshan Sundar. All Rights Reserved</p>
+</footer>
+                
+            </section>
+
+           
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </body>
+</html> 
